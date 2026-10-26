@@ -1,4 +1,4 @@
-# 卸载：从「启动」文件夹删除 AutoDial.vbs
+﻿# 卸载：从「启动」文件夹删除 AutoDial.vbs
 $ErrorActionPreference = 'Stop'
 
 $dst = Join-Path ([Environment]::GetFolderPath('Startup')) 'AutoDial.vbs'

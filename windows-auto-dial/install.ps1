@@ -1,4 +1,4 @@
-# 安装：把 AutoDial.vbs 放进当前用户的「启动」文件夹
+﻿# 安装：把 AutoDial.vbs 放进当前用户的「启动」文件夹
 $ErrorActionPreference = 'Stop'
 
 $src = Join-Path $PSScriptRoot 'AutoDial.vbs'
