@@ -25,8 +25,8 @@ cd gdut_net_auto\windows-auto-dial
 Windows 拨号连接（PPPoE）在系统里就是一条 RAS 记录，可以用命令行直接拨：
 
 ```powershell
-rasdial            # 列出已连接的连接
-rasdial kdlink     # 拨号（使用 Windows 保存的账号密码）
+rasdial                # 列出已连接的连接
+rasdial "你的连接名"    # 拨号（使用 Windows 保存的账号密码）
 ```
 
 所以只要把这一条命令挂到登录后执行，就能免去手动操作。账号密码由 Windows 的凭据管理器用 DPAPI 加密保存，脚本里不出现明文。

@@ -40,7 +40,7 @@ cd gdut_net_auto\windows-auto-dial
 
 | 常量 | 默认 | 说明 |
 |---|---|---|
-| `CONN` | `kdlink` | 拨号连接名 |
+| `CONN` | `你的连接名` | 拨号连接名，改成自己电脑上的名字 |
 | `USERNAME` / `PASSWORD` | 空 | 留空 = 用 Windows 保存的凭据；填了则强制使用（会以明文存在脚本里） |
 | `MAXTRY` | 40 | 最多尝试次数 |
 | `WAITSEC` | 15 | 每次失败后等待秒数 |
