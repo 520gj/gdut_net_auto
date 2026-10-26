@@ -1,0 +1,6 @@
+# 这些文件必须保留原始换行，否则 Windows 上会出问题：
+#   .cmd 用 LF 换行时 cmd.exe 解析错乱（报 'o.' 之类）
+#   .vbs 由 WSH 解析，统一保持 CRLF
+*.cmd -text
+*.bat -text
+*.vbs -text
