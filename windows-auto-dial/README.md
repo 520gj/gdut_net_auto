@@ -7,10 +7,14 @@ Windows 登录后自动帮你把宽带（PPPoE）拨上，不用再打开「设�
 ## 快速开始
 
 ```powershell
-git clone https://github.com/<你的用户名>/gdut_net_auto.git
-cd gdut_net_auto\windows-auto-dial
-.\install.ps1
+git clone https://github.com/520gj/gdut_net_auto.git
 ```
+
+打开 `gdut_net_auto\windows-auto-dial`，**双击 `安装.cmd`**。
+
+窗口会一直开着，每一步都打印结果；如果脚本里还没有账号密码，安装完会自动打开记事本让你填。
+
+> 为什么不提供 `.ps1`：右键「使用 PowerShell 运行」会在脚本结束时立刻关窗，成功失败都看不到，`$PSScriptRoot` / 工作目录也随调用方式变化，非常容易踩坑。`.cmd` 双击稳定，且用 `pause` 把窗口留住。
 
 然后**确认三件事**：
 
@@ -60,7 +64,7 @@ Select-String "$env:APPDATA\Microsoft\Network\Connections\Pbk\rasphone.pbk" -Pat
 
 ### 安全性说明
 
-密码以**明文**存在 `%LOCALAPPDATA%\AutoDial\AutoDial.vbs`，只有当前用户和管理员可读。仓库里的脚本始终保持空白凭据，`install.ps1` 升级时会自动沿用你本机已填好的值，**不会把密码带到 git 里**。
+密码以**明文**存在 `%LOCALAPPDATA%\AutoDial\AutoDial.vbs`，只有当前用户和管理员可读。仓库里的脚本始终保持空白凭据，重新运行 `安装.cmd` 时会自动沿用你本机已填好的值，**不会把密码带到 git 里**。
 
 ## 工作方式
 
@@ -77,8 +81,8 @@ Select-String "$env:APPDATA\Microsoft\Network\Connections\Pbk\rasphone.pbk" -Pat
 | 文件 | 作用 |
 |---|---|
 | `AutoDial.vbs` | 主脚本，顶部常量可改连接名、重试次数、等待时间 |
-| `install.ps1` | 复制脚本到 `%LOCALAPPDATA%\AutoDial`，并在「启动」文件夹建快捷方式 |
-| `uninstall.ps1` | 删除快捷方式和脚本目录 |
+| `安装.cmd` | 双击安装：复制脚本到 `%LOCALAPPDATA%\AutoDial`，并在「启动」文件夹建快捷方式 |
+| `卸载.cmd` | 双击卸载：删除快捷方式和脚本目录 |
 
 ## 可调参数
 
@@ -111,11 +115,11 @@ Select-String "$env:APPDATA\Microsoft\Network\Connections\Pbk\rasphone.pbk" -Pat
 
 ## 取消
 
-```powershell
-.\uninstall.ps1
-```
+双击 `卸载.cmd`。
 
-或直接在「任务管理器 → 启动应用」里禁用 `AutoDial.vbs`。
+卸载只取消开机自启，**不会断开当前已连接的拨号**。
+
+也可以在「任务管理器 → 启动应用」里禁用 `AutoDial`。
 
 ## 限制
 

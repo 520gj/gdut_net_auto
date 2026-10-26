@@ -14,9 +14,9 @@
 
 ```powershell
 git clone https://github.com/520gj/gdut_net_auto.git
-cd gdut_net_auto\windows-auto-dial
-.\install.ps1
 ```
+
+进入 `gdut_net_auto\windows-auto-dial`，**双击 `安装.cmd`**（窗口会停住，能看到每一步结果）。
 
 详细说明（参数、日志、错误码、卸载）见 [windows-auto-dial/README.md](windows-auto-dial/README.md)。
 
